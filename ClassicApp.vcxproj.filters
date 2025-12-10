@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Исходные файлы">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Файлы ресурсов">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков\Controllers">
+      <UniqueIdentifier>{fe784af1-4097-414e-9eb3-ac403cd3dab8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Core">
+      <UniqueIdentifier>{666bdf90-123c-4730-bd24-2019a4b107f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Entity">
+      <UniqueIdentifier>{be19ca24-97b6-4afe-8771-036f199e4aca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Entity">
+      <UniqueIdentifier>{5daec335-dad5-42ac-a066-87c3bd2dbe12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Controllers">
+      <UniqueIdentifier>{98375b41-da39-4858-b4f0-9a3142bd15d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Objects">
+      <UniqueIdentifier>{ff0e1600-a9c1-466a-9188-250d3dea32bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Objects">
+      <UniqueIdentifier>{1b7b58eb-c086-4744-86bf-21b967d2b892}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Core">
+      <UniqueIdentifier>{01d05f85-eee3-4e94-8eac-6c5d808967f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Interfaces">
+      <UniqueIdentifier>{91a3185e-e842-4fc2-9b9e-599f43a79685}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Interfaces">
+      <UniqueIdentifier>{346dfd6b-783d-416f-887d-832ba00579f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Serializators">
+      <UniqueIdentifier>{5ee43c68-545c-455c-81aa-723ea9714e04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Entity\Monsters">
+      <UniqueIdentifier>{df56f010-0bd4-4144-8e68-353388ff975c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Entity\Monsters">
+      <UniqueIdentifier>{cd1e8336-6daa-4199-a2ca-e3c8b04c8a9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Controllers\Inventory">
+      <UniqueIdentifier>{5da8e114-543a-4dcf-b865-f39db7f8e50b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Controllers\Inventory\Items">
+      <UniqueIdentifier>{4afd0eb3-5d78-4b12-8187-e347c5accdda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Controllers\Inventory">
+      <UniqueIdentifier>{a1695ebb-40bf-44af-8562-12f2bded01ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Interfaces\IItems">
+      <UniqueIdentifier>{f35f8b3a-911e-4ecd-8584-076228588e03}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ClassicApp.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationController.h">
+      <Filter>Файлы заголовков\Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="framework.h">
+      <Filter>Файлы заголовков\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Файлы заголовков\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Файлы заголовков\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Character.h">
+      <Filter>Файлы заголовков\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Файлы заголовков\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionManager.h">
+      <Filter>Файлы заголовков\Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Файлы заголовков\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="CoordinateSystem.h">
+      <Filter>Файлы заголовков\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="GameWorld.h">
+      <Filter>Файлы заголовков\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="IAttack.h">
+      <Filter>Файлы заголовков\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityController.h">
+      <Filter>Файлы заголовков\Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="Serializable.h">
+      <Filter>Файлы заголовков\Serializators</Filter>
+    </ClInclude>
+    <ClInclude Include="Goblin.h">
+      <Filter>Файлы заголовков\Entity\Monsters</Filter>
+    </ClInclude>
+    <ClInclude Include="EnumsEntity.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>Файлы заголовков\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="IFollow.h">
+      <Filter>Файлы заголовков\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="TileMapLoader.h">
+      <Filter>Файлы заголовков\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="LayerController.h">
+      <Filter>Файлы заголовков\Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="IRenderable.h">
+      <Filter>Файлы заголовков\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>Файлы заголовков\Controllers\Inventory\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Potions.h">
+      <Filter>Файлы заголовков\Controllers\Inventory\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Swords.h">
+      <Filter>Файлы заголовков\Controllers\Inventory\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Inventory.h">
+      <Filter>Файлы заголовков\Controllers\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="IWeapon.h">
+      <Filter>Файлы заголовков\Interfaces\IItems</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ClassicApp.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationController.cpp">
+      <Filter>Исходные файлы\Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="Character.cpp">
+      <Filter>Исходные файлы\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Исходные файлы\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionManager.cpp">
+      <Filter>Исходные файлы\Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Исходные файлы\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="GameWorld.cpp">
+      <Filter>Исходные файлы\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="IAttack.cpp">
+      <Filter>Исходные файлы\Interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityController.cpp">
+      <Filter>Исходные файлы\Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="Goblin.cpp">
+      <Filter>Исходные файлы\Entity\Monsters</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>Исходные файлы\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="IFollow.cpp">
+      <Filter>Исходные файлы\Interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="TileMapLoader.cpp">
+      <Filter>Исходные файлы\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Inventory.cpp">
+      <Filter>Исходные файлы\Controllers\Inventory</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ClassicApp.rc">
+      <Filter>Файлы ресурсов</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="ClassicApp.ico">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
