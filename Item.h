@@ -5,7 +5,8 @@
 #include <objidl.h>
 #include <gdiplus.h>
 #pragma comment (lib, "Gdiplus.lib")
-#include "Entity.h"
+
+
 using namespace std;
 class Item
 {
@@ -23,8 +24,6 @@ public:
 
 	virtual bool IsStackable() const { return false; }
 	virtual int GetMaxStack() const { return 1; }
-	virtual Gdiplus::Bitmap* GetIcon() const { return nullptr; }
-
-	virtual void Use(Entity& character) { /**/ }
+	virtual Gdiplus::Image* GetIcon() const { return nullptr; }
 };
 

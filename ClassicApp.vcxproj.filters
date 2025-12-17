@@ -64,6 +64,9 @@
     <Filter Include="Файлы заголовков\Interfaces\IItems">
       <UniqueIdentifier>{f35f8b3a-911e-4ecd-8584-076228588e03}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\Interfaces\Inventory">
+      <UniqueIdentifier>{90b877a6-73e5-4db8-a2c2-2dbc211386e7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClassicApp.h">
@@ -144,6 +147,15 @@
     <ClInclude Include="IWeapon.h">
       <Filter>Файлы заголовков\Interfaces\IItems</Filter>
     </ClInclude>
+    <ClInclude Include="IConsumable.h">
+      <Filter>Файлы заголовков\Interfaces\IItems</Filter>
+    </ClInclude>
+    <ClInclude Include="IUInventory.h">
+      <Filter>Файлы заголовков\Interfaces\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="FastFunctions.h">
+      <Filter>Файлы заголовков\Serializators</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ClassicApp.cpp">
@@ -187,6 +199,9 @@
     </ClCompile>
     <ClCompile Include="Inventory.cpp">
       <Filter>Исходные файлы\Controllers\Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="IUInventory.cpp">
+      <Filter>Исходные файлы\Interfaces</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

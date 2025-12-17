@@ -141,6 +141,7 @@
     <ClInclude Include="Entity.h" />
     <ClInclude Include="EntityController.h" />
     <ClInclude Include="EnumsEntity.h" />
+    <ClInclude Include="FastFunctions.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GameWorld.h" />
     <ClInclude Include="Goblin.h" />
@@ -150,6 +151,7 @@
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="IRenderable.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="IUInventory.h" />
     <ClInclude Include="IWeapon.h" />
     <ClInclude Include="LayerController.h" />
     <ClInclude Include="Monster.h" />
@@ -173,6 +175,7 @@
     <ClCompile Include="IAttack.cpp" />
     <ClCompile Include="IFollow.cpp" />
     <ClCompile Include="Inventory.cpp" />
+    <ClCompile Include="IUInventory.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="TileMapLoader.cpp" />
   </ItemGroup>

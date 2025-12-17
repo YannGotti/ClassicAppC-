@@ -9,7 +9,10 @@ class IRenderable
 {
 public:
     virtual ~IRenderable() = default;
-    virtual void Draw(Gdiplus::Graphics& g) = 0;
+    virtual void Draw(Gdiplus::Graphics& g) { /**/ };
+    virtual void DrawScreen(Gdiplus::Graphics& g, const RECT& clientRect) { /**/ };
+    
+    virtual void Update(float deltaTime) = 0;
 
     virtual bool IsDynamic() const { return false; }
 };

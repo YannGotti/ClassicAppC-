@@ -1,8 +1,8 @@
 ﻿#include "GameWorld.h"
 #include "EntityController.h"
 #include "Goblin.h"
-#include "Goblin.h"
 #include "Swords.h"
+#include "Potions.h"
 
 #pragma comment(lib, "gdiplus.lib")
 
@@ -65,8 +65,16 @@ void GameWorld::LoadPlayerData(const std::wstring& playerAssetFolder)
 
     shared_ptr<Item> iron_sword = make_shared<IronSword>();
     shared_ptr<Item> bronze_sword = make_shared<BronzeSword>();
+    shared_ptr<Item> health_potion = make_shared<HealthPotion>();
 
     player->GetInventory().AddItem(iron_sword);
+    player->GetInventory().AddItem(bronze_sword);
+    player->GetInventory().AddItem(health_potion);
+    player->GetInventory().AddItem(bronze_sword);
+    player->GetInventory().AddItem(bronze_sword);
+    player->GetInventory().AddItem(bronze_sword);
+    player->GetInventory().AddItem(bronze_sword);
+    player->GetInventory().AddItem(bronze_sword);
     player->GetInventory().AddItem(bronze_sword);
 
 
@@ -81,14 +89,9 @@ void GameWorld::Update(float deltaTime)
         EntityController::SaveEntities();
         LayerController::Add(boblin, 20);
     }
-    
+
+    LayerController::UpdateAll(deltaTime);
     //collisionMgr.Update();
-
-    for (auto* e : EntityController::GetDynamicEntities())
-    {
-        e->Update(deltaTime);
-    }
-
     camera.Update();
 }
 
@@ -97,54 +100,12 @@ void GameWorld::Draw(Gdiplus::Graphics& g, const RECT& clientRect)
     camera.SetViewSize(clientRect.right, clientRect.bottom);
     camera.ApplyTransform(g);
 
-    /*int locX = 0;
-    int locY = 0;
-    Pen pen(Color(255, 150, 150, 150), 2);
-
-    int sizeX = 100;
-    int sizeY = 100;
-
-    for (size_t i = 0; i < sizeX; i++)
-    {
-        for (size_t i = 0; i < sizeY; i++)
-        {
-            Rect rect(locX, locY, 16, 16);
-            g.DrawRectangle(&pen, rect);
-            locY += 16;
-
-        }
-        locX += 16;
-        locY = 0;
-    }*/
-
     LayerController::DrawAll(g);
-
-    //m_mapLoader.Draw(&g);
-
-    /*for (auto* e : EntityController::GetDynamicEntities())
-    {
-        if (e->GetEntityType() != EntityType::Player)
-            e->Draw(g);
-    }
-
-    for (auto* e : EntityController::GetDynamicEntities())
-    {
-        if (e->GetEntityType() == EntityType::Player)
-            e->Draw(g);
-    }*/
-    //collisionMgr.Draw(g);
 
     Camera::ResetTransform(g, clientRect.right, clientRect.bottom);
 
-    /*for (auto* e : EntityController::GetDynamicEntities())
-    {
-        if (e->GetEntityType() == EntityType::Monster) {
-            auto* monster = static_cast<Monster*>(e);
-            monster->DebugAttack(g);
-            monster->GetDebugInfo(g);
-        }
-    }*/
-    
+    LayerController::DrawScreen(g, clientRect);
+
     //player->GetDebugInfo(g);
     //player->DebugAttack(g);
 }

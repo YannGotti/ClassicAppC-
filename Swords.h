@@ -9,8 +9,8 @@ public:
 	string GetName() const override { return "Железный меч"; }
 	Type GetType() const override { return Type::Weapon; }
 
-	Gdiplus::Bitmap* GetIcon() const { 
-		return new Gdiplus::Bitmap(L"Assets/Items/Weapon/Swords/iron-sword.png"); 
+	Gdiplus::Image* GetIcon() const override {
+		return new Gdiplus::Image(L"Assets/Items/Weapon/Swords/iron-sword.png");
 	}
 
 	int GetDamage() const override { return 15; }

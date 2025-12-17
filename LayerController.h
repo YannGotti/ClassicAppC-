@@ -78,6 +78,36 @@ public:
         }
     }
 
+    static void DrawScreen(Gdiplus::Graphics& g, const RECT& clientRect)
+    {
+        auto& ls = layers();
+        for (auto& [layer, ld] : ls)
+        {
+            if (ld.dirty || ld.hasDynamic)
+            {
+                g.SetInterpolationMode(Gdiplus::InterpolationModeNearestNeighbor);
+
+                for (auto* obj : ld.objects)
+                    obj->DrawScreen(g, clientRect);
+
+                ld.dirty = false;
+            }
+        }
+    }
+
+    static void UpdateAll(float deltaTime)
+    {
+        auto& ls = layers();
+        for (auto& [layer, ld] : ls)
+        {
+            if (ld.dirty || ld.hasDynamic)
+            {
+                for (auto* obj : ld.objects)
+                    obj->Update(deltaTime);
+            }
+        }
+    }
+
 private:
     static std::map<int, LayerData>& layers()
     {

@@ -27,10 +27,7 @@ public:
 
     // Отрисовка активной карты
     void Draw(Gdiplus::Graphics& g) override;
-
-    // Вспомогательное: конвертация путей
-    static std::string WStringToUTF8(const std::wstring& wstr);
-    static std::wstring UTF8ToWString(const std::string& str);
+    void Update(float deltaTime) override { /**/ };
 
     bool IsDynamic() const { return false; }
 

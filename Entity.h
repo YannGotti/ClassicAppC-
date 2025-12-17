@@ -25,7 +25,7 @@ public:
 	Entity(float x = 0.f, float y = 0.f, float w = 32.f, float h = 32.f);
 	virtual ~Entity() = default;
 
-	virtual void Update(float deltaTime);
+	virtual void Update(float deltaTime) override;
 	virtual void StatementTimerUpdate(float deltaTime);
 	virtual void Draw(Gdiplus::Graphics& g) override;
 

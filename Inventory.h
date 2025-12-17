@@ -2,6 +2,7 @@
 #include <vector>
 #include <memory>
 #include "Item.h"
+#include "IUInventory.h"
 
 using namespace std;
 
@@ -18,7 +19,6 @@ public:
 	Inventory(int slotCount = 30)
 		: m_slots(slotCount) {}
 
-
 	bool AddItem(shared_ptr<Item> item);
 	bool RemoveItem(int slotIndex, int count = 1);
 
@@ -26,4 +26,5 @@ public:
 
 private:
 	vector<InventorySlot> m_slots;
+	IHotBarInvetory hotBat = IHotBarInvetory(this);
 };
