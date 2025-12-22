@@ -4,21 +4,21 @@
 using namespace FastFunctions;
 
 const float PADDING = 16;
-const float STEP_X = 32;
-const float SIZE_ICON = 48;
+const float STEP_X = 34;
+const float SIZE_ICON = 32;
 const int MAX_ITEMS = 9;
+const float width_border = (MAX_ITEMS * (SIZE_ICON + STEP_X));
 
 void IHotBarInvetory::DrawScreen(Gdiplus::Graphics& g, const RECT& clientRect)
 {
 	auto slots = _parentInv->GetSlots();
-
-	float width_border = (MAX_ITEMS * (SIZE_ICON + STEP_X)) + PADDING;
-
+	
 	float x = (clientRect.right * 0.5f) - (width_border * 0.5f);
-	float y = clientRect.bottom * (90.f / 100.f);
+	float y = clientRect.bottom - (SIZE_ICON + (PADDING * 3));
 
 	Gdiplus::RectF rect(x, y, width_border, SIZE_ICON + (PADDING * 2));
 	Gdiplus::Pen pen(Gdiplus::Color(155, 155, 155), 5);
+	Gdiplus::SolidBrush brush(Gdiplus::Color(200, 125, 125, 125));
 
 	g.DrawRectangle(&pen, rect);
 
@@ -32,6 +32,13 @@ void IHotBarInvetory::DrawScreen(Gdiplus::Graphics& g, const RECT& clientRect)
 
 		if (!gImage) { return; }
 
+		Gdiplus::RectF rectCell(x, y, 
+			SIZE_ICON + STEP_X,
+			SIZE_ICON + STEP_X);
+
+		g.FillRectangle(&brush, rectCell);
+		g.DrawRectangle(&pen, rectCell);
+
 		g.DrawImage(
 			gImage,
 			x + PADDING, y + PADDING,
@@ -40,11 +47,14 @@ void IHotBarInvetory::DrawScreen(Gdiplus::Graphics& g, const RECT& clientRect)
 		);
 
 		x += SIZE_ICON + STEP_X;
-
 	}
 }
 
 void IHotBarInvetory::Update(float deltaTime)
 {
 
+}
+
+void IHotBarInvetory::HandlerInputCellInventory(const PlayerSwitchInventoryEvent& e)
+{
 }

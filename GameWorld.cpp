@@ -1,5 +1,6 @@
 ﻿#include "GameWorld.h"
 #include "EntityController.h"
+#include "InputController.h"
 #include "Goblin.h"
 #include "Swords.h"
 #include "Potions.h"
@@ -89,6 +90,8 @@ void GameWorld::Update(float deltaTime)
         EntityController::SaveEntities();
         LayerController::Add(boblin, 20);
     }
+
+    InputController::Update(deltaTime);
 
     LayerController::UpdateAll(deltaTime);
     //collisionMgr.Update();
