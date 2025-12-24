@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "IRenderable.h"
 #include "LayerController.h"
 #include "EventBus.h"
@@ -11,19 +11,29 @@ class IHotBarInvetory : public IRenderable
 public:
 	IHotBarInvetory(Inventory* inventory)
 	{
-		LayerController::Add(this, 40);
+		LayerController::Add(this, 30);
+		hotbar = new Image(L"Assets/UI/Inventory/inv_hotbar.png");
 		_parentInv = inventory;
-		EventBus::Subscribe<PlayerSwitchInventoryEvent>([](const PlayerSwitchInventoryEvent& e) 
-		{
-			
-		});
+		Init();
 	}
+
+	void Init()
+	{
+		EventBus::Subscribe<PlayerSwitchInventoryEvent>(
+			[this](const PlayerSwitchInventoryEvent& e) {
+				this->HandlerInputCellInventory(e);
+			}
+		);
+
+	}
+
 	bool IsDynamic() const override { return true; }
 	void DrawScreen(Gdiplus::Graphics& g, const RECT& clientRect) override;
 	void Update(float deltaTime) override;
-	void HandlerInputCellInventory( PlayerSwitchInventoryEvent& e);
+	void HandlerInputCellInventory(const PlayerSwitchInventoryEvent& e);
 private:
 	Inventory* _parentInv;
+	Image* hotbar;
 };
 
 

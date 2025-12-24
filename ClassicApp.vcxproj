@@ -173,7 +173,6 @@
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="EntityController.cpp" />
-    <ClCompile Include="EventBus.cpp" />
     <ClCompile Include="GameWorld.cpp" />
     <ClCompile Include="Goblin.cpp" />
     <ClCompile Include="IAttack.cpp" />

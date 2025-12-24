@@ -53,7 +53,7 @@ void GameWorld::LoadPlayerData(const std::wstring& playerAssetFolder)
         player->animController.LoadAnimations(playerAssetFolder);
         player->SetAnimation(player->currentAnimation);
 
-        EntityController::ReplaceEntity(loadedPlayer, player);
+        //EntityController::ReplaceEntity(loadedPlayer, player);
     }
     else
     {
@@ -61,7 +61,7 @@ void GameWorld::LoadPlayerData(const std::wstring& playerAssetFolder)
         player->animController.LoadAnimations(playerAssetFolder);
         player->SetAnimation(L"IdleDown");
 
-        EntityController::AddEntity(player);
+        //EntityController::AddEntity(player);
     }
 
     shared_ptr<Item> iron_sword = make_shared<IronSword>();
@@ -87,12 +87,11 @@ void GameWorld::Update(float deltaTime)
     if (GetAsyncKeyState('C')) {
         Goblin* boblin = new Goblin(100, 100);
         EntityController::AddEntity(boblin);
-        EntityController::SaveEntities();
+        //EntityController::SaveEntities();
         LayerController::Add(boblin, 20);
     }
 
     InputController::Update(deltaTime);
-
     LayerController::UpdateAll(deltaTime);
     //collisionMgr.Update();
     camera.Update();

@@ -221,9 +221,6 @@
     <ClCompile Include="IUInventory.cpp">
       <Filter>Исходные файлы\Interfaces</Filter>
     </ClCompile>
-    <ClCompile Include="EventBus.cpp">
-      <Filter>Исходные файлы\Events</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="ClassicApp.rc">

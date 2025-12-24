@@ -116,7 +116,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         
         // Создаём мир
         world = make_unique<GameWorld>(1280, 720);
-        world->InitAssets(L"Assets/Player");
+        world->InitAssets(L"Assets/Entities/Player");
         world->SetWorldBounds(0.f, 0.f, 16000, 16000); // ограничение камеры
         SetTimer(hWnd, 1, 16, NULL); // ~60 FPS
     }

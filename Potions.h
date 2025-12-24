@@ -9,7 +9,7 @@ class HealthPotion : public Item, public IConsumable
 	Type GetType() const override{ return Type::Consumable; }
 
 	Gdiplus::Image* GetIcon() const override {
-		return new Gdiplus::Image(L"Assets/Items/Potion/Heal/heal-potion.png");
+		return new Gdiplus::Image(L"Assets/UI/Inventory/Items/Potion/Heal/heal-potion.png");
 	}
 
 	bool IsStackable() const override { return true; }

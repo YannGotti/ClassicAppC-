@@ -23,7 +23,7 @@ public:
 	static void Update(float deltaTime)
 	{
 
-		if (GetAsyncKeyState(1)) HandlerInputCellInventory(1);
+		if (GetAsyncKeyState('G')) HandlerInputCellInventory(1);
 
 	}
 

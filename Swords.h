@@ -10,7 +10,7 @@ public:
 	Type GetType() const override { return Type::Weapon; }
 
 	Gdiplus::Image* GetIcon() const override {
-		return new Gdiplus::Image(L"Assets/Items/Weapon/Swords/iron-sword.png");
+		return new Gdiplus::Image(L"Assets/UI/Inventory/Items/Weapon/Swords/iron-sword.png");
 	}
 
 	int GetDamage() const override { return 15; }
@@ -28,7 +28,7 @@ public:
 	Type GetType() const override { return Type::Weapon; }
 
 	Gdiplus::Bitmap* GetIcon() const {
-		return new Gdiplus::Bitmap(L"Assets/Items/Weapon/Swords/bronze-sword.png");
+		return new Gdiplus::Bitmap(L"Assets/UI/Inventory/Items/Weapon/Swords/bronze-sword.png");
 	}
 
 	int GetDamage() const override { return 20; }

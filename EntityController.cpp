@@ -45,14 +45,14 @@ void EntityController::LoadAnimationsForEntities() {
 	{
 		if (e->GetEntityType() == EntityType::Player)
 		{
-			e->animController.LoadAnimations(L"Assets/Player");
+			e->animController.LoadAnimations(L"Assets/Entities/Player");
 			e->SetAnimation(L"IdleDown");
 		}
 
 		if (e->GetEntityType() == EntityType::Monster)
 		{
 			Monster* cast = static_cast<Monster*>(e);
-			e->animController.LoadAnimations(L"Assets/" + MonsterTypeToString(cast->GetMonsterType()));
+			e->animController.LoadAnimations(L"Assets/Entities/" + MonsterTypeToString(cast->GetMonsterType()));
 			e->SetAnimation(L"IdleDown");
 		}
 	}
