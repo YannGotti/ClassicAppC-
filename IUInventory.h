@@ -13,6 +13,8 @@ public:
 	{
 		LayerController::Add(this, 30);
 		hotbar = new Image(L"Assets/UI/Inventory/inv_hotbar.png");
+		cell = new Image(L"Assets/UI/Inventory/cell.png");
+		frame = new Image(L"Assets/UI/Inventory/frame.png");
 		_parentInv = inventory;
 		Init();
 	}
@@ -34,6 +36,9 @@ public:
 private:
 	Inventory* _parentInv;
 	Image* hotbar;
+	Image* frame;
+	Image* cell;
+	int currentSlot = 0;
 };
 
 
