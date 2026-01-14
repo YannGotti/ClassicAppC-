@@ -22,9 +22,13 @@ public:
 	bool AddItem(shared_ptr<Item> item);
 	bool RemoveItem(int slotIndex, int count = 1);
 
+	void DropItem() { RemoveItem(hotBar.GetCurrentSlot()); }
+
+	InventorySlot* GetCurrentSlot() { return &m_slots[hotBar.GetCurrentSlot()]; }
+
 	const vector<InventorySlot>& GetSlots() const { return m_slots; }
 
 private:
 	vector<InventorySlot> m_slots;
-	IHotBarInvetory hotBat = IHotBarInvetory(this);
+	IHotBarInvetory hotBar = IHotBarInvetory(this);
 };

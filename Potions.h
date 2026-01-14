@@ -1,7 +1,6 @@
 #pragma once
 #include "Item.h"
 #include "IConsumable.h"
-#include "IConsumable.h"
 
 class HealthPotion : public Item, public IConsumable
 {

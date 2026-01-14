@@ -13,7 +13,6 @@
 using namespace Gdiplus;
 using namespace std;
 
-
 struct FloatRect
 {
 	float left, top, right, bottom;

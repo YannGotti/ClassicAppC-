@@ -1,7 +1,11 @@
 #include "Character.h"
+#include "EventsTypes.h"
+#include "ItemObject.h"
 
 Character::Character(int x, int y) : Entity(x, y)
 {
+	Init(); // Подписка на событие
+
 	type = EntityType::Player;
 	actionToAnimation[L"Attack"] = L"Attack";
 	actionToAnimation[L"Throw"] = L"Throw";
@@ -10,6 +14,16 @@ Character::Character(int x, int y) : Entity(x, y)
 	animController.Play(currentAnimation);
 	damage = 10;
 	speed = 16.0f;
+
+}
+
+void Character::Init()
+{
+	EventBus::Subscribe<PlayerDropItemEvent>(
+		[this](const PlayerDropItemEvent& e) {
+			this->DropItem();
+		}
+	);
 }
 
 void Character::Update(float deltaTime)
@@ -71,7 +85,6 @@ void Character::Draw(Gdiplus::Graphics& g)
 	Entity::Draw(g);
 }
 
-
 void Character::PerformAction(const wstring& actionName)
 {
 	if (actionToAnimation.find(actionName) != actionToAnimation.end())
@@ -79,6 +92,12 @@ void Character::PerformAction(const wstring& actionName)
 		SetState(State::Attacking);
 		SetAnimation(actionToAnimation[actionName]);
 	}
+}
+
+void Character::DropItem()
+{
+	inventory.DropItem();
+	Objects::Item::CreateItem(inventory.GetCurrentSlot(), GetX(), GetY());
 }
 
 

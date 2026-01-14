@@ -6,7 +6,6 @@
 #include <gdiplus.h>
 #pragma comment (lib, "Gdiplus.lib")
 
-
 using namespace std;
 class Item
 {

@@ -11,14 +11,18 @@
 using namespace std;
 using namespace Gdiplus;
 
-
 class Character : public Entity, public IAttack
 {
 public:
 	Character(int x = 0, int y = 0);
+	void Init();
+
 	void Update(float deltaTime) override;
 	void Draw(Gdiplus::Graphics& g) override;
 	void PerformAction(const wstring& actionName);
+
+	void DropItem();
+
 private:
 	map<wstring, wstring> actionToAnimation;
 	Inventory inventoty = Inventory();

@@ -154,6 +154,7 @@
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="IRenderable.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="ItemObject.h" />
     <ClInclude Include="IUInventory.h" />
     <ClInclude Include="IWeapon.h" />
     <ClInclude Include="LayerController.h" />
@@ -178,6 +179,7 @@
     <ClCompile Include="IAttack.cpp" />
     <ClCompile Include="IFollow.cpp" />
     <ClCompile Include="Inventory.cpp" />
+    <ClCompile Include="ItemObject.cpp" />
     <ClCompile Include="IUInventory.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="TileMapLoader.cpp" />
