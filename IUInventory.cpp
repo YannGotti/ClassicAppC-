@@ -1,4 +1,4 @@
-#include "IUInventory.h"
+﻿#include "IUInventory.h"
 #include "Inventory.h"
 #include "FastFunctions.h"
 
@@ -85,7 +85,11 @@ void IHotBarInvetory::DrawScreen(Graphics& g, const RECT& clientRect)
 	}
 }
 
-void IHotBarInvetory::Update(float deltaTime)
+// ======================================================
+// ЛОГИКА
+// ======================================================
+
+void IHotBarInvetory::Update(float /*deltaTime*/)
 {
 }
 
