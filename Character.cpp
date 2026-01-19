@@ -97,7 +97,7 @@ void Character::PerformAction(const wstring& actionName)
 void Character::DropItem()
 {
 	inventory.DropItem();
-	Objects::Item::CreateItem(inventory.GetCurrentSlot(), GetX(), GetY());
+	Objects::Item::CreateItem(inventory.GetCurrentSlot(), x, y);
 }
 
 

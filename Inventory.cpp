@@ -48,3 +48,13 @@ bool Inventory::RemoveItem(int slotIndex, int count)
 
 	return true;
 }
+
+void Inventory::DropItem()
+{
+	RemoveItem(hotBar->GetCurrentSlot());
+}
+
+InventorySlot Inventory::GetCurrentSlot()
+{
+	return m_slots[hotBar->GetCurrentSlot()];
+}

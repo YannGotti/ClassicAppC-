@@ -15,20 +15,25 @@ struct InventorySlot
 
 class Inventory
 {
+
+
 public:
 	Inventory(int slotCount = 30)
-		: m_slots(slotCount) {}
+		: m_slots(slotCount),
+		hotBar(new IHotBarInvetory(this))
+	{
+	}
 
 	bool AddItem(shared_ptr<Item> item);
 	bool RemoveItem(int slotIndex, int count = 1);
 
-	void DropItem() { RemoveItem(hotBar.GetCurrentSlot()); }
+	void DropItem();
 
-	InventorySlot* GetCurrentSlot() { return &m_slots[hotBar.GetCurrentSlot()]; }
+	InventorySlot GetCurrentSlot();
 
 	const vector<InventorySlot>& GetSlots() const { return m_slots; }
 
 private:
 	vector<InventorySlot> m_slots;
-	IHotBarInvetory hotBar = IHotBarInvetory(this);
+	IHotBarInvetory* hotBar = nullptr;
 };
