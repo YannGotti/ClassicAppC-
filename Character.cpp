@@ -24,6 +24,12 @@ void Character::Init()
 			this->DropItem();
 		}
 	);
+
+	EventBus::Subscribe<PlayerPickItemEvent>(
+		[this](const PlayerPickItemEvent& e) {
+			this->TryPickup();
+		}
+	);
 }
 
 void Character::Update(float deltaTime)
@@ -58,11 +64,9 @@ void Character::Update(float deltaTime)
 		}
 	}
 
-	// --- Скорость движения по осям ---
 	velocityX = dx * speed;
 	velocityY = dy * speed;
 
-	// --- Статус ---
 	if (dx != 0 || dy != 0)
 		SetState(State::Walking);
 	else
@@ -96,8 +100,8 @@ void Character::PerformAction(const wstring& actionName)
 
 void Character::DropItem()
 {
+	Objects::Item::CreateItem(inventory.GetCurrentSlot(), this);
 	inventory.DropItem();
-	Objects::Item::CreateItem(inventory.GetCurrentSlot(), x, y);
 }
 
 

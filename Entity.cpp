@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include "ItemObject.h"
 
 Entity::Entity(float x_, float y_, float w_, float h_)
 	: x(x_), y(y_), width(w_), height(h_)
@@ -268,6 +269,28 @@ void Entity::RevertMovement()
 {
 	dx = 0;
 	dy = 0;
+}
+
+void Entity::TryPickup()
+{
+	for (IRenderable* r : LayerController::GetLayerObjects(19))
+	{
+		auto item = dynamic_cast<Objects::Item*>(r);
+		if (!item) continue;
+
+		RECT a = GetBounds();
+		RECT b = item->GetBounds();
+
+		RECT intersection;
+		if (IntersectRect(&intersection, &a, &b))
+		{
+			if (inventory.AddItem(item->GetSlotData().item))
+			{
+				item->Destroy();
+				break;
+			}
+		}
+	}
 }
 
 

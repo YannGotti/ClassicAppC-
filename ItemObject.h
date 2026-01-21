@@ -61,33 +61,66 @@ namespace Objects
 			return new Item(slotData, character);
 		}
 
+		const InventorySlot& GetSlotData() const
+		{
+			return _slotData;
+		}
+
+		RECT GetBounds() const
+		{
+			RECT r;
+			r.left = (LONG)x;
+			r.top = (LONG)y;
+			r.right = (LONG)(x + _image->GetWidth());
+			r.bottom = (LONG)(y + _image->GetHeight());
+			return r;
+		}
+
+		void Destroy()
+		{
+			LayerController::Remove(this);
+			delete this;
+		}
+
 	private:
 
 		void InitResource()
 		{
+
+			if (_slotData.item == nullptr)
+				return;
+
 			_image = _slotData.item.get()->GetIcon();
+
+			startX = x;
+			startY = y;
+
+			endPosX = x;
+			endPosY = y;
 
 			switch (_direction)
 			{
 			case Direction::Up:
-				endPosY = y - (_image->GetWidth() * 2);
+				endPosY -= _image->GetWidth();
 				break;
 			case Direction::Down:
-				endPosY = y + (_image->GetWidth() * 2);
+				endPosY += _image->GetWidth();
 				break;
 			case Direction::Left:
-				endPosX = x - (_image->GetWidth() * 2);
+				endPosX -= _image->GetWidth();
 				break;
 			case Direction::Right:
-				endPosX = x + (_image->GetWidth() * 2);
-				break;
-			default:
+				endPosX += _image->GetWidth();
 				break;
 			}
+
+			LayerController::Add(this, 19);
 		}
 
-		float x, y, endPosX, endPosY;
-		float interpolationFactor = 0;
+		float x, y;
+		float startX, startY;
+		float endPosX, endPosY;
+		float interpolationFactor = 0.0f;
 		InventorySlot _slotData;
 		Direction _direction;
 		Gdiplus::Image* _image;

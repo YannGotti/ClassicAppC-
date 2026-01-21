@@ -19,7 +19,26 @@ constexpr float PANEL_WIDTH = MAX_ITEMS * SLOT_SIZE + (MAX_ITEMS - 1) * SLOT_GAP
 constexpr float PANEL_HEIGHT =
 	SLOT_SIZE + PANEL_PADDING * 2.0f;
 
-void IHotBarInvetory::DrawScreen(Graphics& g, const RECT& clientRect)
+IHotBarInventory::IHotBarInventory(Inventory* inventory)
+	: _parentInv(inventory)
+{
+	LayerController::Add(this, 30);
+
+	hotbar = new Image(L"Assets/UI/Inventory/inv_hotbar.png");
+	cell = new Image(L"Assets/UI/Inventory/cell.png");
+	frame = new Image(L"Assets/UI/Inventory/frame.png");
+	_parentInv = inventory;
+
+	EventBus::Subscribe<PlayerSwitchInventoryEvent>(
+		[this](const PlayerSwitchInventoryEvent& e)
+		{
+			currentSlot = e.slot;
+		}
+	);
+}
+
+
+void IHotBarInventory::DrawScreen(Graphics& g, const RECT& clientRect)
 {
 	auto slots = _parentInv->GetSlots();
 
@@ -85,16 +104,11 @@ void IHotBarInvetory::DrawScreen(Graphics& g, const RECT& clientRect)
 	}
 }
 
-// ======================================================
-// ЛОГИКА
-// ======================================================
-
-void IHotBarInvetory::Update(float /*deltaTime*/)
+void IHotBarInventory::Update(float /*deltaTime*/)
 {
 }
 
-
-void IHotBarInvetory::HandlerInputCellInventory(
+void IHotBarInventory::HandlerInputCellInventory(
 	const PlayerSwitchInventoryEvent& e) 
 {
 	if (e.slot >= 0 && e.slot < MAX_ITEMS)

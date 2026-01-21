@@ -7,3 +7,4 @@ struct PlayerSwitchInventoryEvent
 };
 
 struct PlayerDropItemEvent {};
+struct PlayerPickItemEvent {};

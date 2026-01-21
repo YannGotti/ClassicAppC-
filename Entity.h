@@ -42,6 +42,16 @@ public:
 		return PointF(x + width * 0.5f, y + height * 0.5f);
 	}
 
+	RECT GetBounds() const
+	{
+		return RECT{
+			(LONG)x,
+			(LONG)y,
+			(LONG)(x + width),
+			(LONG)(y + height)
+		};
+	}
+
 	bool Intersects(const Entity& other) const;
 	bool Intersects(const Entity& other, float offset) const;
 
@@ -97,6 +107,8 @@ public:
 	bool IsDynamic() const { return true; }
 
 	Inventory& GetInventory() { return inventory; }
+
+	void TryPickup();
 
 	bool collideLeft = false;
 	bool collideRight = false;

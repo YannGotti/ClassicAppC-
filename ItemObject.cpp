@@ -18,9 +18,10 @@ void Objects::Item::Update(float deltaTime)
 {
 	if (!_image) return;
 
-	x = x + (endPosX - x) * interpolationFactor;
+	interpolationFactor += deltaTime * 2.0f;
+	if (interpolationFactor > 1.0f)
+		interpolationFactor = 1.0f;
 
-	y = y + (endPosY - y) * interpolationFactor;
-
-	interpolationFactor += deltaTime * 1;
+	x = startX + (endPosX - startX) * interpolationFactor;
+	y = startY + (endPosY - startY) * interpolationFactor;
 }

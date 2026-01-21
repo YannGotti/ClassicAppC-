@@ -4,25 +4,20 @@
 #include "Item.h"
 #include "IUInventory.h"
 
-using namespace std;
+class IHotBarInventory;
 
 struct InventorySlot
 {
 	shared_ptr<Item> item;
-	int count;
+	int count = 0;
 	bool isEmpty() const { return item == nullptr; }
 };
 
 class Inventory
 {
-
-
 public:
-	Inventory(int slotCount = 30)
-		: m_slots(slotCount),
-		hotBar(new IHotBarInvetory(this))
-	{
-	}
+	Inventory(int slotCount = 30);
+	~Inventory();
 
 	bool AddItem(shared_ptr<Item> item);
 	bool RemoveItem(int slotIndex, int count = 1);
@@ -35,5 +30,5 @@ public:
 
 private:
 	vector<InventorySlot> m_slots;
-	IHotBarInvetory* hotBar = nullptr;
+	IHotBarInventory* hotBar = nullptr;
 };

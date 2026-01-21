@@ -108,6 +108,17 @@ public:
         }
     }
 
+    static const std::vector<IRenderable*>& GetLayerObjects(int layer)
+    {
+        static std::vector<IRenderable*> empty;
+
+        auto it = layers().find(layer);
+        if (it == layers().end())
+            return empty;
+
+        return it->second.objects;
+    }
+
 private:
     static std::map<int, LayerData>& layers()
     {

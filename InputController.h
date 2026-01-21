@@ -66,6 +66,12 @@ private:
 			EventBus::Emit(PlayerDropItemEvent {});
 			return;
 		};
+
+		if (virtualKey == 'E')
+		{
+			EventBus::Emit(PlayerPickItemEvent{});
+			return;
+		};
 	}
             
 

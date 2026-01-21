@@ -1,4 +1,16 @@
 #include "Inventory.h"
+#include "IUInventory.h"
+
+Inventory::Inventory(int slotCount)
+	: m_slots(slotCount)
+{
+	hotBar = new IHotBarInventory(this);
+}
+
+Inventory::~Inventory()
+{
+	delete hotBar;
+}
 
 bool Inventory::AddItem(shared_ptr<Item> item)
 {
@@ -56,5 +68,13 @@ void Inventory::DropItem()
 
 InventorySlot Inventory::GetCurrentSlot()
 {
-	return m_slots[hotBar->GetCurrentSlot()];
+	if (!hotBar)
+		return {}; 
+
+	int index = hotBar->GetCurrentSlot();
+
+	if (index < 0 || index >= m_slots.size())
+		return {};
+
+	return m_slots[index];
 }

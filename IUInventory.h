@@ -6,28 +6,12 @@
 
 class Inventory;
 
-class IHotBarInvetory : public IRenderable
+class IHotBarInventory : public IRenderable
 {
 public:
-	IHotBarInvetory(Inventory* inventory)
-	{
-		LayerController::Add(this, 30);
-		hotbar = new Image(L"Assets/UI/Inventory/inv_hotbar.png");
-		cell = new Image(L"Assets/UI/Inventory/cell.png");
-		frame = new Image(L"Assets/UI/Inventory/frame.png");
-		_parentInv = inventory;
-		Init();
-	}
 
-	void Init()
-	{
-		EventBus::Subscribe<PlayerSwitchInventoryEvent>(
-			[this](const PlayerSwitchInventoryEvent& e) {
-				this->HandlerInputCellInventory(e);
-			}
-		);
+	explicit IHotBarInventory(Inventory* inventory);
 
-	}
 
 	bool IsDynamic() const override { return true; }
 	void DrawScreen(Gdiplus::Graphics& g, const RECT& clientRect) override;
